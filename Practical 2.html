@@ -1,0 +1,623 @@
+<html>
+
+<head> 
+<table border=5 height =3600" width ="1515"><td><tiltle>
+<h1><center><font size=20>
+
+
+</p>The Dreamy World Of Mine 🥀
+</h1></center></font>
+</title>
+</head>
+<center>
+<body bgcolor="5B7B6D	">
+<img src="C:\Users\user\OneDrive\Pictures\downloaded photos
+\aac30ffcfdd1150630174750b9697341.jpg" 
+height ="350" width ="600">
+
+ <p>
+<font size=5><b>
+Life of being a special Girl🍄
+</font>
+</p>
+ <font size=3 color="white">Being Nada is so fun and mysterious. 
+I like to be alone, listen to songs ♪ and 
+write about myself.<br> Actually I don't know why I'm 
+writing this or to whom I'm writing.
+Writing kinda makes me feel relaxed
+and comfortable.<br> I also like to learn 
+other languages, solve rubix, paint, 
+write poems, research, ride bikes and try out new things like currently I'm tryin' to code<br>
+and in the coming days i want to learn to cook and I've been seeing many youtubers knitting
+so I gotta give it a try too :)<br><p>
+
+
+Watching movies🎞, reading books📔, lighting<br> a candle and feeling the way it melts down🕯
+spending time with nature ☘ and animals 
+drinking tea, dancing in the rain and <br>staring at the moon ☾ are my 
+favorites----------------------------------------<br>
+
+
+</center>
+
+
+
+
+<style>
+.btn {
+  background-color: #ddd;
+  border: none;
+  color: black;
+  padding: 16px 32px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background-color: #3e8e41;
+  color: white;
+}
+</style><center><p><button class="btn" onclick="alert('Hi human, PLS DONT WASTE YOUR TIME🎈. You have works to do. Just think about it. WAKE UP!!!')"> 
+LOVE<3</button></p></center>
+
+
+<br>
+
+
+
+
+
+
+
+
+
+<center> <p><video src="C:\Users\user\Videos\downloaded videos\playlist-u-start-loving-yourself.mp4" 
+width="1100" height="800"  controls autoplay loop> <audio controls></audio></p></center>
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+     
+<p>
+    <title>Simple Calculator</title>
+</head>
+<body>
+    <h1>Simple Calculator</h1>
+    <form name="calculator">
+        <input type="text" name="display" id="display" readonly>
+        <br>
+        <button type="button" onclick="clearDisplay()">C</button>
+        <button type="button" onclick="appendToDisplay('7')">7</button>
+        <button type="button" onclick="appendToDisplay('8')">8</button>
+        <button type="button" onclick="appendToDisplay('9')">9</button>
+        <button type="button" onclick="appendToDisplay('+')">+</button>
+        <br>
+        <button type="button" onclick="appendToDisplay('4')">4</button>
+        <button type="button" onclick="appendToDisplay('5')">5</button>
+        <button type="button" onclick="appendToDisplay('6')">6</button>
+        <button type="button" onclick="appendToDisplay('-')">-</button>
+        <br>
+        <button type="button" onclick="appendToDisplay('1')">1</button>
+        <button type="button" onclick="appendToDisplay('2')">2</button>
+        <button type="button" onclick="appendToDisplay('3')">3</button>
+        <button type="button" onclick="appendToDisplay('*')">*</button>
+        <br>
+        <button type="button" onclick="appendToDisplay('0')">0</button>
+        <button type="button" onclick="appendToDisplay('.')">.</button>
+        <button type="button" onclick="calculateResult()">=</button>
+        <button type="button" onclick="appendToDisplay('/')">/</button>
+    </form>
+
+    <script>
+        function appendToDisplay(value) {
+            document.calculator.display.value += value;
+        }
+
+        function clearDisplay() {
+            document.calculator.display.value = "";
+        }
+
+        function calculateResult() {
+            try {
+                document.calculator.display.value = eval(document.calculator.display.value);
+            } catch (e) {
+                document.calculator.display.value = "Error";
+            }
+        }
+    </script>
+</p>
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Voice-to-Note Website - Malayalam</title>
+</head>
+<body>
+    <h1>Voice-to-Note Website - Malayalam</h1>
+    <p>Press the "Start Listening" button and start speaking in Malayalam. Your voice will be converted to text, and you can save the note below.</p>
+    
+    <button id="startBtn" onclick="startListening()">Start Listening</button>
+    <div id="output"></div>
+    <button onclick="saveNote()">Save Note</button>
+
+    <script>
+        let recognition = null;
+        let note = '';
+
+        function startListening() {
+            if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
+                recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+                recognition.lang = 'ml-IN'; // Set language to Malayalam
+                recognition.continuous = true;
+                recognition.interimResults = true;
+
+                recognition.onresult = function(event) {
+                    let finalTranscript = '';
+                    let interimTranscript = '';
+
+                    for (let i = event.resultIndex; i < event.results.length; i++) {
+                        const transcript = event.results[i][0].transcript;
+                        if (event.results[i].isFinal) {
+                            finalTranscript += transcript + ' ';
+                        } else {
+                            interimTranscript += transcript;
+                        }
+                    }
+
+                    document.getElementById('output').innerText = finalTranscript + interimTranscript;
+                    note = finalTranscript + interimTranscript;
+                };
+
+                recognition.start();
+                document.getElementById('startBtn').disabled = true;
+
+                recognition.onend = function() {
+                    document.getElementById('startBtn').disabled = false;
+                };
+
+                recognition.onerror = function(event) {
+                    console.error('Speech recognition error occurred:', event.error);
+                    document.getElementById('startBtn').disabled = false;
+                };
+            } else {
+                document.getElementById('output').innerText = 'Speech recognition not supported in this browser.';
+                document.getElementById('startBtn').disabled = true;
+            }
+        }
+
+        function saveNote() {
+            if (note.trim() !== '') {
+                const currentDate = new Date().toLocaleString();
+                const noteData = {
+                    text: note,
+                    timestamp: currentDate
+                };
+
+                // Save the note in LocalStorage
+                const notes = JSON.parse(localStorage.getItem('notes') || '[]');
+                notes.push(noteData);
+                localStorage.setItem('notes', JSON.stringify(notes));
+
+                alert('Note saved successfully!');
+                note = '';
+                document.getElementById('output').innerText = '';
+            } else {
+                alert('No text to save.');
+            }
+        }
+    </script>
+</body>
+</html>
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+<p><img src="C:\Users\user\OneDrive\Pictures\downloaded photos\
+4d1dae0e4dd041262bd31b911d26df7e.jpg"
+height ="500" width ="500"> </p><br>
+
+
+
+
+<form method="GET">
+  Search Term In Google: <input type="text" name="q">
+  <button type="submit" formaction="https://www.google.com/search">Search</button>
+</form>
+
+
+<form method="GET">
+  Search Term In YouTube: <input type="text" name="q">
+  <button type="submit" formaction="https://www.youtube.com/search">Search</button>
+</form>
+
+
+<br>
+
+
+<p><p><style>.badge 
+{background-color: #D4E6F1;
+  color: black;
+  padding: 40px 80px;
+  text-align: center;
+  border-radius: 20px;}
+</style>
+
+<h2><span class="badge">Newest thing that i found while
+ learning coding</span></h2></p> <br>
+</p>
+
+<p>
+<article class="forecast">
+  <h1>Weather forecast for Seattle</h1>
+  <article class="day-forecast">
+    <h2>03 March 2018</h2>
+    <p>Rain.</p>
+  </article>
+  <article class="day-forecast">
+    <h2>04 March 2018</h2>
+    <p>Periods of rain.</p>
+  </article>
+  <article class="day-forecast">
+    <h2>05 March 2018</h2>
+    <p>Heavy rain.</p>
+  </article>
+</article>
+</p>
+
+
+
+
+=============================================================================================================
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Animation</title>
+    <style>
+        /* Define the animation */
+        @keyframes textAnimation {
+            0% {
+                opacity: 0; /* Start with 0% opacity (invisible) */
+            }
+            50% {
+                opacity: 1; /* At 50% of the animation, text is fully visible */
+            }
+            100% {
+                opacity: 0; /* At the end, text is invisible again */
+            }
+        }
+
+        /* Apply the animation to the text */
+        .animated-text {
+            animation: textAnimation 2s ease-in-out infinite; /* 2 seconds animation, ease-in-out timing function, repeat infinitely */
+        }
+    </style>
+</head>
+<body>
+    <h1>Animating Text</h1>
+    <p class="animated-text">This text will fade in and out.</p>
+</body>
+</html>
+
+
+
+==========================================================================================================================
+
+
+
+
+
+
+============================================================================================================================================
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Text Animation</title>
+    <style>
+        /* Style the container */
+        .text-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000; /* Background color of the container */
+            overflow: hidden;
+        }
+
+        /* Define the animated text */
+        .neon-text {
+            font-size: 3em;
+            color: #00ff00; /* Neon green text color */
+            text-transform: uppercase;
+            animation: neon 1.5s linear infinite alternate; /* Neon animation */
+            text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00; /* Neon glow effect */
+        }
+
+        /* Define the neon animation */
+        @keyframes neon {
+            0% {
+                opacity: 0.6;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="text-container">
+        <div class="neon-text">Neon Text</div>
+    </div>
+</body>
+</html>
+
+==========================================================================================================================
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attractive Text Animation</title>
+    <style>
+        /* Style the container */
+        .text-container {
+            position: relative;
+            width: 300px;
+            height: 100px;
+            background-color: #333; /* Background color of the container */
+        }
+
+        /* Define the animated text */
+        .shimmer-text {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            color: #fff; /* Text color */
+            background: linear-gradient(to right, transparent 0%, #fff 50%, transparent 100%); /* Shimmer effect */
+            background-size: 200% 100%;
+            animation: shimmer 2s linear infinite; /* 2 seconds animation, linear timing function, repeat infinitely */
+        }
+
+        /* Define the shimmer animation */
+        @keyframes shimmer {
+            0% {
+                background-position: -200% 0;
+            }
+            100% {
+                background-position: 200% 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Attractive Text Animation</h1>
+    <div class="text-container">
+        <div class="shimmer-text">Shimmering Text</div>
+    </div>
+</body>
+</html>
+
+====================================================================================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .party-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+        }
+
+        .party-popper {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(45deg, #ff0000, #ff8000, #ffff00, #00ff00, #0000ff, #8000ff, #ff00ff);
+            background-size: 700% 100%;
+            position: absolute;
+            overflow: hidden;
+            border-radius: 50%;
+            animation: pop 1s linear infinite;
+        }
+
+        @keyframes pop {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(3);
+                opacity: 0;
+            }
+        }
+
+        .party-popper:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        .party-popper:nth-child(3) {
+            animation-delay: 1s;
+        }
+
+        .party-popper:nth-child(4) {
+            animation-delay: 1.5s;
+        }
+
+        /* Add more party-popper nth-child styles as needed */
+    </style>
+</head>
+<body>
+    <div class="party-container">
+        <div class="party-popper" style="top: 100px; left: 100px;"></div>
+        <div class="party-popper" style="top: 200px; left: 200px;"></div>
+        <div class="party-popper" style="top: 300px; left: 300px;"></div>
+        <!-- Add more party poppers with different positions here -->
+    </div>
+</body>
+</html>
+
+
+=======================================================================================================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <style>
+        #timer-container {
+            width: 400px; /* Adjust the width as needed */
+            height: 250px; /* Adjust the height as needed */
+            background-color: #333; /* Change the background color to dark gray */
+            color: white; /* Change text color to white */
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px auto; /* Center the container horizontally */
+        }
+
+        .timer-button {
+            width: 80px;
+            height: 40px;
+            font-size: 18px;
+            background-color: #4CAF50; /* Green background color */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        #seconds-input, #minutes-input, #hours-input {
+            width: 60px;
+            height: 30px;
+            font-size: 16px;
+            text-align: center;
+            margin: 10px;
+        }
+
+        #timer {
+            font-size: 36px;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center; color: white;">Countdown Timer</h1>
+    <div id="timer-container">
+        <div id="timer">00:00:00</div>
+        <input type="number" id="hours-input" placeholder="Hours">
+        <input type="number" id="minutes-input" placeholder="Minutes">
+        <input type="number" id="seconds-input" placeholder="Seconds">
+        <button class="timer-button" onclick="setTimer()">Set Timer</button>
+        <button class="timer-button" onclick="startTimer()">Start</button>
+        <button class="timer-button" onclick="stopTimer()">Stop</button>
+        <button class="timer-button" onclick="resetTimer()">Reset</button>
+    </div>
+
+    <script>
+        var countdownInterval;
+        var targetDate;
+        var timerPaused = false;
+
+        function setTimer() {
+            var hours = parseInt(document.getElementById("hours-input").value, 10) || 0;
+            var minutes = parseInt(document.getElementById("minutes-input").value, 10) || 0;
+            var seconds = parseInt(document.getElementById("seconds-input").value, 10) || 0;
+
+            var totalSeconds = hours * 3600 + minutes * 60 + seconds;
+
+            if (totalSeconds > 0) {
+                targetDate = new Date().getTime() + (totalSeconds * 1000);
+                updateTimerDisplay(totalSeconds);
+                timerPaused = false;
+            }
+        }
+
+        function startTimer() {
+            if (!countdownInterval) {
+                setTimer(); // Start with the value in the input fields
+                countdownInterval = setInterval(updateTimer, 1000);
+                timerPaused = false;
+            }
+        }
+
+        function stopTimer() {
+            if (countdownInterval) {
+                clearInterval(countdownInterval);
+                countdownInterval = null;
+                timerPaused = true;
+            }
+        }
+
+        function resetTimer() {
+            stopTimer();
+            document.getElementById("timer").innerHTML = "00:00:00";
+            document.getElementById("hours-input").value = "";
+            document.getElementById("minutes-input").value = "";
+            document.getElementById("seconds-input").value = "";
+        }
+
+        function updateTimer() {
+            if (!timerPaused) {
+                var currentDate = new Date().getTime();
+                var timeRemaining = targetDate - currentDate;
+
+                if (timeRemaining <= 0) {
+                    clearInterval(countdownInterval);
+                    countdownInterval = null;
+                    document.getElementById("timer").innerHTML = "Countdown Expired!";
+                } else {
+                    updateTimerDisplay(Math.floor(timeRemaining / 1000));
+                }
+            }
+        }
+
+        function updateTimerDisplay(totalSeconds) {
+            var hours = Math.floor(totalSeconds / 3600);
+            var minutes = Math.floor((totalSeconds % 3600) / 60);
+            var seconds = totalSeconds % 60;
+
+            hours = (hours < 10) ? "0" + hours : hours;
+            minutes = (minutes < 10) ? "0" + minutes : minutes;
+            seconds = (seconds < 10) ? "0" + seconds : seconds;
+
+            document.getElementById("timer").innerHTML = hours + ":" + minutes + ":" + seconds;
+        }
+    </script>
+</body>
+</html>
+
+
+
+=================================================================================================================
+
+
+====================================================================
+
+</body><html
+
